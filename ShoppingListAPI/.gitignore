@@ -1,0 +1,68 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS metadata
+Icon?
+._*
+
+# Rider (JetBrains IDE)
+.idea/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# User-specific files
+*.iml
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]ogs/
+*.log
+
+# ASP.NET / Entity Framework
+App_Data/
+appsettings.Development.json
+
+# NuGet packages
+*.nupkg
+packages/
+.nuget/
+
+# VS Code settings (in case you use it too)
+.vscode/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Rider-specific
+.idea/.idea.Rider/
+
+# Others
+*.db
+*.pidb
+*.sln.cache
+*.swp
+*.tmp
+*.bak
+*.orig
+*.rej
+*.gz
+
+# Environment
+.env
+.env.*
+
+# Node.js (if you have frontend code)
+node_modules/
+dist/
