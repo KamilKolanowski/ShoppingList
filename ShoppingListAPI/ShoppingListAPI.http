@@ -1,6 +1,18 @@
 @ShoppingListAPI_HostAddress = http://localhost:5118
 
-GET {{ShoppingListAPI_HostAddress}}/weatherforecast/
+GET {{ShoppingListAPI_HostAddress}}/api/shopping-list/products/
 Accept: application/json
 
 ###
+
+POST {{ShoppingListAPI_HostAddress}}/api/shopping-list/products
+Content-Type: application/json
+
+  {
+    "shoppingListName": "Weekly Groceries",
+    "productName": "Bread",
+    "price": 1.99,
+    "quantity": 1,
+    "weight": 0.5,
+    "total": 1.99
+  }

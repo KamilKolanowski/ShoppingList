@@ -8,11 +8,12 @@ namespace ShoppingListAPI.Repositories;
 public class ShoppingListRepository : IShoppingListRepository
 {
     private readonly ShoppingListDbContext _context;
+
     public ShoppingListRepository(ShoppingListDbContext context)
     {
         _context = context;
     }
-    
+
     public async Task<IEnumerable<ShoppingList>> GetAllShoppingLists()
     {
         return await _context.ShoppingList.ToListAsync();

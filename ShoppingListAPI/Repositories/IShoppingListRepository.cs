@@ -10,5 +10,4 @@ public interface IShoppingListRepository
     Task<bool> AddShoppingList(ShoppingList shoppingList);
     Task<bool> UpdateShoppingList(ShoppingList shoppingList);
     Task<bool> DeleteShoppingList(int shoppingListId);
-    
 }
