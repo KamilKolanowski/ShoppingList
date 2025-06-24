@@ -42,9 +42,7 @@ public class ShoppingListDbContext : DbContext
                 .HasMaxLength(200)
                 .HasColumnType("nvarchar(200)");
 
-            entity.Property(e => e.Price)
-                .IsRequired()
-                .HasColumnType("decimal(18,2)");
+            entity.Property(e => e.Price).IsRequired().HasColumnType("decimal(18,2)");
         });
 
         modelBuilder.Entity<ShoppingListItem>(entity =>
@@ -56,10 +54,7 @@ public class ShoppingListDbContext : DbContext
                 .WithMany(s => s.Items)
                 .HasForeignKey(i => i.ShoppingListId);
 
-            entity
-                .HasOne(i => i.Product)
-                .WithMany()
-                .HasForeignKey(i => i.ProductId);
+            entity.HasOne(i => i.Product).WithMany().HasForeignKey(i => i.ProductId);
 
             entity.Property(i => i.Quantity).IsRequired().HasColumnType("int");
             entity.Property(i => i.Weight).HasColumnType("decimal(18,2)");

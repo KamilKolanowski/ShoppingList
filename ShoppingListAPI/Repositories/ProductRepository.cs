@@ -4,12 +4,12 @@ namespace ShoppingListAPI.Repositories;
 
 public class ProductRepository : IDataRepository<Product>
 {
-    public Task<IEnumerable<ShoppingList>> GetAllAsync()
+    public Task<IEnumerable<Product>> GetAllAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<ShoppingList?> GetByIdAsync(int id)
+    public Task<Product?> GetByIdAsync(int id)
     {
         throw new NotImplementedException();
     }

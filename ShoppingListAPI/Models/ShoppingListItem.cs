@@ -6,6 +6,7 @@ namespace ShoppingListAPI.Models;
 public class ShoppingListItem
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
     [ForeignKey("ShoppingList")]

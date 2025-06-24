@@ -5,8 +5,8 @@ namespace ShoppingListAPI.Repositories;
 
 public interface IDataRepository<T>
 {
-    Task<IEnumerable<ShoppingList>> GetAllAsync();
-    Task<ShoppingList?> GetByIdAsync(int id);
+    Task<IEnumerable<T>> GetAllAsync();
+    Task<T?> GetByIdAsync(int id);
     Task<bool> AddAsync(T item);
     Task<bool> UpdateAsync(T item);
     Task<bool> DeleteAsync(int id);

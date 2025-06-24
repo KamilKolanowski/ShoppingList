@@ -10,5 +10,5 @@ public class ShoppingList
     [StringLength(100)]
     [Required]
     public string ShoppingListName { get; set; } = String.Empty;
-    public List<ShoppingListItem> Items { get; set; } = new ();
+    public List<ShoppingListItem> Items { get; set; } = new();
 }

@@ -27,3 +27,20 @@ Content-Type: application/json
     }
   ]
 }
+
+###
+
+POST {{ShoppingListAPI_HostAddress}}/api/shopping-list/items
+Content-Type: application/json
+
+{
+"shoppingListId": 1,
+"productId": 5,
+"quantity": 3,
+"weight": 1.2,
+"total": 15.99,
+"isPickedUp": false
+}
+
+### 
+GET {{ShoppingListAPI_HostAddress}}/api/shopping-list/items

@@ -1,31 +1,68 @@
+using Microsoft.EntityFrameworkCore;
+using ShoppingListAPI.Data;
 using ShoppingListAPI.Models;
 
 namespace ShoppingListAPI.Repositories;
 
 public class ShoppingListItemRepository : IDataRepository<ShoppingListItem>
 {
-    public Task<IEnumerable<ShoppingList>> GetAllAsync()
+    private readonly ShoppingListDbContext _context;
+
+    public ShoppingListItemRepository(ShoppingListDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task<ShoppingList?> GetByIdAsync(int id)
+    public async Task<IEnumerable<ShoppingListItem>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _context.ShoppingListItems.ToListAsync();
     }
 
-    public Task<bool> AddAsync(ShoppingListItem item)
+    public async Task<ShoppingListItem?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.ShoppingListItems.FindAsync(id);
     }
 
-    public Task<bool> UpdateAsync(ShoppingListItem item)
+    public async Task<bool> AddAsync(ShoppingListItem item)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _context.ShoppingListItems.AddAsync(item);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
     }
 
-    public Task<bool> DeleteAsync(int id)
+    public async Task<bool> UpdateAsync(ShoppingListItem item)
     {
-        throw new NotImplementedException();
+        try
+        {
+            _context.ShoppingListItems.Update(item);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
+
+    public async Task<bool> DeleteAsync(int id)
+    {
+        try
+        {
+            var shoppingListItem = await _context.ShoppingListItems.FindAsync(id);
+            _context.ShoppingListItems.Remove(shoppingListItem);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
     }
 }

@@ -37,7 +37,8 @@ public class ShoppingListController : ControllerBase
         try
         {
             var entity = await _shoppingListService.GetByIdAsync(id);
-            if (entity == null) return NotFound();
+            if (entity == null)
+                return NotFound();
             return Ok(MapToDto(entity));
         }
         catch (Exception ex)
@@ -94,21 +95,25 @@ public class ShoppingListController : ControllerBase
         }
     }
 
+    // Mapping methods:
+
     private ShoppingListDto MapToDto(ShoppingList entity)
     {
         return new ShoppingListDto
         {
             Id = entity.Id,
             ShoppingListName = entity.ShoppingListName,
-            Items = entity.Items.Select(i => new ShoppingListItemDto
-            {
-                Id = i.Id,
-                ProductId = i.ProductId,
-                Quantity = i.Quantity,
-                Weight = i.Weight,
-                Total = i.Total,
-                IsPickedUp = i.IsPickedUp
-            }).ToList()
+            Items = entity
+                .Items.Select(i => new ShoppingListItemDto
+                {
+                    Id = i.Id,
+                    ProductId = i.ProductId,
+                    Quantity = i.Quantity,
+                    Weight = i.Weight,
+                    Total = i.Total,
+                    IsPickedUp = i.IsPickedUp,
+                })
+                .ToList(),
         };
     }
 
@@ -118,15 +123,17 @@ public class ShoppingListController : ControllerBase
         {
             Id = dto.Id ?? 0,
             ShoppingListName = dto.ShoppingListName,
-            Items = dto.Items.Select(i => new ShoppingListItem
-            {
-                Id = i.Id ?? 0,
-                ProductId = i.ProductId,
-                Quantity = i.Quantity,
-                Weight = i.Weight,
-                Total = i.Total,
-                IsPickedUp = i.IsPickedUp
-            }).ToList()
+            Items = dto
+                .Items.Select(i => new ShoppingListItem
+                {
+                    Id = i.Id ?? 0,
+                    ProductId = i.ProductId,
+                    Quantity = i.Quantity,
+                    Weight = i.Weight,
+                    Total = i.Total,
+                    IsPickedUp = i.IsPickedUp,
+                })
+                .ToList(),
         };
     }
 }

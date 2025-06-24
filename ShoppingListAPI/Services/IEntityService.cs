@@ -5,8 +5,8 @@ namespace ShoppingListAPI.Services;
 
 public interface IEntityService<T>
 {
-    Task<IEnumerable<ShoppingList>> GetAllAsync();
-    Task<ShoppingList?> GetByIdAsync(int id);
+    Task<IEnumerable<T>> GetAllAsync();
+    Task<T?> GetByIdAsync(int id);
     Task PostAsync(T item);
     Task PutAsync(T item);
     Task DeleteAsync(int id);
