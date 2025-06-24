@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ShoppingListAPI.Models;
 
@@ -11,6 +12,7 @@ public class ShoppingListItem
 
     [ForeignKey("ShoppingList")]
     public int ShoppingListId { get; set; }
+    [JsonIgnore]
     public ShoppingList? ShoppingList { get; set; }
 
     [ForeignKey("Product")]

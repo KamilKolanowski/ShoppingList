@@ -52,7 +52,7 @@ public class ShoppingListItemController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostShoppingListItem(ShoppingListItemDto shoppingListItemDto)
+    public async Task<IActionResult> PostShoppingListItem([FromBody] ShoppingListItemDto shoppingListItemDto)
     {
         try
         {

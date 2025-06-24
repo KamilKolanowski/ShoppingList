@@ -26,7 +26,7 @@ public class ShoppingListService : IEntityService<ShoppingList>
     }
 
     public async Task PostAsync(ShoppingList shoppingList)
-    {
+    { 
         await _repository.AddAsync(shoppingList);
     }
 

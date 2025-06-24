@@ -22,8 +22,7 @@ public class ShoppingListController : ControllerBase
         try
         {
             var entities = await _shoppingListService.GetAllAsync();
-            var dtos = entities.Select(MapToDto);
-            return Ok(dtos);
+            return Ok(entities);
         }
         catch (Exception ex)
         {
@@ -39,7 +38,7 @@ public class ShoppingListController : ControllerBase
             var entity = await _shoppingListService.GetByIdAsync(id);
             if (entity == null)
                 return NotFound();
-            return Ok(MapToDto(entity));
+            return Ok(entity);
         }
         catch (Exception ex)
         {
@@ -48,14 +47,12 @@ public class ShoppingListController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostShoppingList(ShoppingListDto shoppingListDto)
+    public async Task<IActionResult> PostShoppingList(ShoppingList shoppingList)
     {
         try
         {
-            var entity = MapToEntity(shoppingListDto);
-            await _shoppingListService.PostAsync(entity);
-            var dto = MapToDto(entity);
-            return CreatedAtAction(nameof(GetShoppingList), new { id = dto.Id }, dto);
+            await _shoppingListService.PostAsync(shoppingList);
+            return CreatedAtAction(nameof(GetShoppingList), new { id = shoppingList.Id }, shoppingList);
         }
         catch (Exception ex)
         {
@@ -64,15 +61,13 @@ public class ShoppingListController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutShoppingList(int id, ShoppingListDto shoppingListDto)
+    public async Task<IActionResult> PutShoppingList(int id, ShoppingList shoppingList)
     {
         try
         {
-            if (id != shoppingListDto.Id)
+            if (id != shoppingList.Id)
                 return BadRequest("Id mismatch");
-
-            var entity = MapToEntity(shoppingListDto);
-            await _shoppingListService.PutAsync(entity);
+            await _shoppingListService.PutAsync(shoppingList);
             return NoContent();
         }
         catch (Exception ex)
@@ -93,47 +88,5 @@ public class ShoppingListController : ControllerBase
         {
             return StatusCode(500, ex.Message);
         }
-    }
-
-    // Mapping methods:
-
-    private ShoppingListDto MapToDto(ShoppingList entity)
-    {
-        return new ShoppingListDto
-        {
-            Id = entity.Id,
-            ShoppingListName = entity.ShoppingListName,
-            Items = entity
-                .Items.Select(i => new ShoppingListItemDto
-                {
-                    Id = i.Id,
-                    ProductId = i.ProductId,
-                    Quantity = i.Quantity,
-                    Weight = i.Weight,
-                    Total = i.Total,
-                    IsPickedUp = i.IsPickedUp,
-                })
-                .ToList(),
-        };
-    }
-
-    private ShoppingList MapToEntity(ShoppingListDto dto)
-    {
-        return new ShoppingList
-        {
-            Id = dto.Id ?? 0,
-            ShoppingListName = dto.ShoppingListName,
-            Items = dto
-                .Items.Select(i => new ShoppingListItem
-                {
-                    Id = i.Id ?? 0,
-                    ProductId = i.ProductId,
-                    Quantity = i.Quantity,
-                    Weight = i.Weight,
-                    Total = i.Total,
-                    IsPickedUp = i.IsPickedUp,
-                })
-                .ToList(),
-        };
     }
 }

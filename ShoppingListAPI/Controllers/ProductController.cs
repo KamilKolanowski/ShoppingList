@@ -5,7 +5,7 @@ using ShoppingListAPI.Services;
 namespace ShoppingListAPI.Controllers;
 
 [ApiController]
-[Route("api/shopping-list")]
+[Route("api/shopping-list/products")]
 public class ProductController : ControllerBase
 {
     private readonly IEntityService<Product> _productService;
