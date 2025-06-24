@@ -8,7 +8,7 @@ public class ShoppingListDbContext : DbContext
     public ShoppingListDbContext(DbContextOptions<ShoppingListDbContext> options)
         : base(options) { }
 
-    public DbSet<ShoppingList> ShoppingList { get; set; }
+    public DbSet<ShoppingList> ShoppingLists { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<ShoppingListItem> ShoppingListItems { get; set; }
 

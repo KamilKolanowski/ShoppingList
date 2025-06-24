@@ -10,12 +10,11 @@ public class ShoppingListItem
 
     [ForeignKey("ShoppingList")]
     public int ShoppingListId { get; set; }
-    public ShoppingList ShoppingList { get; set; }
+    public ShoppingList? ShoppingList { get; set; }
 
     [ForeignKey("Product")]
     public int ProductId { get; set; }
-    public Product Product { get; set; }
-
+    public Product? Product { get; set; }
     public int Quantity { get; set; }
     public decimal? Weight { get; set; }
     public decimal Total { get; set; }

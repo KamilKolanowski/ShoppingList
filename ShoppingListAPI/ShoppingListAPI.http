@@ -1,18 +1,29 @@
 @ShoppingListAPI_HostAddress = http://localhost:5118
 
-GET {{ShoppingListAPI_HostAddress}}/api/shopping-list/products/
+GET {{ShoppingListAPI_HostAddress}}/api/shopping-list/
 Accept: application/json
 
 ###
 
-POST {{ShoppingListAPI_HostAddress}}/api/shopping-list/products
+POST {{ShoppingListAPI_HostAddress}}/api/shopping-list/
 Content-Type: application/json
 
-  {
-    "shoppingListName": "Weekly Groceries",
-    "productName": "Bread",
-    "price": 1.99,
-    "quantity": 1,
-    "weight": 0.5,
-    "total": 1.99
-  }
+{
+  "shoppingListName": "Weekly Groceries",
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 2,
+      "weight": 0.5,
+      "total": 3.98,
+      "isPickedUp": false
+    },
+    {
+      "productId": 2,
+      "quantity": 1,
+      "weight": null,
+      "total": 1.99,
+      "isPickedUp": false
+    }
+  ]
+}

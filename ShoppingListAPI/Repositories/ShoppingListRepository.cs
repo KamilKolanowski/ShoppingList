@@ -5,7 +5,7 @@ using ShoppingListAPI.Models;
 
 namespace ShoppingListAPI.Repositories;
 
-public class ShoppingListRepository : IShoppingListRepository
+public class ShoppingListRepository : IDataRepository<ShoppingList>
 {
     private readonly ShoppingListDbContext _context;
 
@@ -14,54 +14,54 @@ public class ShoppingListRepository : IShoppingListRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<ShoppingList>> GetAllShoppingLists()
+    public async Task<IEnumerable<ShoppingList>> GetAllAsync()
     {
-        return await _context.ShoppingList.ToListAsync();
+        return await _context.ShoppingLists.ToListAsync();
     }
 
-    public async Task<ShoppingList?> GetShoppingList(int shoppingListId)
+    public async Task<ShoppingList?> GetByIdAsync(int id)
     {
-        return await _context.ShoppingList.FindAsync(shoppingListId);
+        return await _context.ShoppingLists.FindAsync(id);
     }
 
-    public async Task<bool> AddShoppingList(ShoppingList shoppingList)
+    public async Task<bool> AddAsync(ShoppingList shoppingList)
     {
         try
         {
-            await _context.ShoppingList.AddAsync(shoppingList);
+            await _context.ShoppingLists.AddAsync(shoppingList);
             await _context.SaveChangesAsync();
             return true;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             return false;
         }
     }
 
-    public async Task<bool> UpdateShoppingList(ShoppingList shoppingList)
+    public async Task<bool> UpdateAsync(ShoppingList shoppingList)
     {
         try
         {
-            _context.ShoppingList.Update(shoppingList);
+            _context.ShoppingLists.Update(shoppingList);
             await _context.SaveChangesAsync();
             return true;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             return false;
         }
     }
 
-    public async Task<bool> DeleteShoppingList(int shoppingListId)
+    public async Task<bool> DeleteAsync(int id)
     {
         try
         {
-            var shoppingList = await _context.ShoppingList.FindAsync(shoppingListId);
-            _context.ShoppingList.Remove(shoppingList);
+            var shoppingList = await _context.ShoppingLists.FindAsync(id);
+            _context.ShoppingLists.Remove(shoppingList);
             await _context.SaveChangesAsync();
             return true;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             return false;
         }

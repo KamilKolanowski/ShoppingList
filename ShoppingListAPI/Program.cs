@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ShoppingListAPI.Data;
+using ShoppingListAPI.Models;
 using ShoppingListAPI.Repositories;
 using ShoppingListAPI.Services;
 
@@ -15,8 +16,15 @@ public class Program
         builder.Services.AddDbContext<ShoppingListDbContext>(opt =>
             opt.UseSqlServer(connectionString)
         );
-        builder.Services.AddScoped<IShoppingListRepository, ShoppingListRepository>();
-        builder.Services.AddScoped<IShoppingListApi, ShoppingListApi>();
+        // Add repositories
+        builder.Services.AddScoped<IDataRepository<ShoppingList>, ShoppingListRepository>();
+        // builder.Services.AddScoped<IDataRepository<ShoppingListItem>, ShoppingListItemRepository>();
+        // builder.Services.AddScoped<IDataRepository<Product>, ProductRepository>();
+        
+        // Add services for API
+        builder.Services.AddScoped<IEntityService<ShoppingList>, ShoppingListService>();
+        // builder.Services.AddScoped<IEntityService<ShoppingListItem>, ShoppingListItemService>();
+        // builder.Services.AddScoped<IEntityService<Product>, ProductService>();
 
         builder.Services.AddControllers();
 
