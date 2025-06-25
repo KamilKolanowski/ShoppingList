@@ -179,6 +179,41 @@ a {
   background-color: #a01edc;
 }
 
+.shopping-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.shopping-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.shopping-table th, .shopping-table td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.shopping-table th {
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+
+.pick-btn {
+  padding: 0.4rem 0.7rem;
+  background-color: #2a9d8f;
+  color: white;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.pick-btn:hover {
+  background-color: #21867a;
+}
 
 .hamburger {
   display: none;

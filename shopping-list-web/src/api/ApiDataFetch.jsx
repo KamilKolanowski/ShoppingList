@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 
-function GetProducts(reload = 0, endpoint) {
+function FetchData(reload = 0, endpoint) {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
 
@@ -23,4 +23,4 @@ function GetProducts(reload = 0, endpoint) {
     return { products, error };
 }
 
-export default GetProducts;
+export default FetchData;

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import GetProducts from "../api/ApiDataFetch";
+import FetchData from "../api/ApiDataFetch";
 
 function Products() {
-    const { products, error } = GetProducts(0, "products");
+    const { products, error } = FetchData(0, "products");
     const [filter, setFilter] = useState("");
 
     const filteredProducts = products.filter(p =>
@@ -11,7 +11,6 @@ function Products() {
 
     const handleAdd = (product) => {
         console.log("Add to Shopping List:", product);
-        // Optionally: Send to API or update local state
     };
 
     return (
