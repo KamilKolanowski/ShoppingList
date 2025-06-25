@@ -8,6 +8,6 @@ public interface IEntityService<T>
     Task<IEnumerable<T>> GetAllAsync();
     Task<T?> GetByIdAsync(int id);
     Task<T?> PostAsync(T item);
-    Task PutAsync(T item);
+    Task<T?> PutAsync(T item);
     Task DeleteAsync(int id);
 }

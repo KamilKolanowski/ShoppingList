@@ -26,13 +26,14 @@ public class ShoppingListService : IEntityService<ShoppingList>
 
     public async Task<ShoppingList?> PostAsync(ShoppingList shoppingList)
     { 
-        await _repository.AddAsync(shoppingList);
-        return shoppingList;
+        var createdList = await _repository.AddAsync(shoppingList);
+        return createdList;
     }
 
-    public async Task PutAsync(ShoppingList shoppingList)
+    public async Task<ShoppingList?> PutAsync(ShoppingList shoppingList)
     {
-        await _repository.UpdateAsync(shoppingList);
+        var updatedList = await _repository.UpdateAsync(shoppingList);
+        return updatedList;
     }
 
     public async Task DeleteAsync(int shoppingListId)

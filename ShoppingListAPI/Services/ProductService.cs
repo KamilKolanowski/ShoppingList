@@ -1,31 +1,40 @@
 using ShoppingListAPI.Models;
+using ShoppingListAPI.Repositories;
 
 namespace ShoppingListAPI.Services;
 
 public class ProductService : IEntityService<Product>
 {
-    public Task<IEnumerable<Product>> GetAllAsync()
+    private readonly IDataRepository<Product> _repository;
+
+    public ProductService(IDataRepository<Product> repository)
     {
-        throw new NotImplementedException();
+        _repository = repository;
+    }
+    public async Task<IEnumerable<Product>> GetAllAsync()
+    {
+        return await _repository.GetAllAsync();
     }
 
-    public Task<Product?> GetByIdAsync(int id)
+    public async Task<Product?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _repository.GetByIdAsync(id);
     }
 
-    public Task<Product?> PostAsync(Product item)
+    public async Task<Product?> PostAsync(Product item)
     {
-        throw new NotImplementedException();
+        var createdProduct = await _repository.AddAsync(item);
+        return createdProduct;
     }
 
-    public Task PutAsync(Product item)
+    public async Task<Product?> PutAsync(Product item)
     {
-        throw new NotImplementedException();
+        var updatedProduct = await _repository.UpdateAsync(item);
+        return updatedProduct;
     }
 
-    public Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        await _repository.DeleteAsync(id);
     }
 }

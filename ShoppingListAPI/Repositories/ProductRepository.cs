@@ -1,31 +1,67 @@
+using Microsoft.EntityFrameworkCore;
+using ShoppingListAPI.Data;
 using ShoppingListAPI.Models;
 
 namespace ShoppingListAPI.Repositories;
 
 public class ProductRepository : IDataRepository<Product>
 {
-    public Task<IEnumerable<Product>> GetAllAsync()
+    private readonly ShoppingListDbContext _context;
+
+    public ProductRepository(ShoppingListDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    public async Task<IEnumerable<Product>> GetAllAsync()
+    {
+        return await _context.Products.ToListAsync();
     }
 
-    public Task<Product?> GetByIdAsync(int id)
+    public async Task<Product?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Products.FindAsync(id);
     }
 
-    public Task<Product?> AddAsync(Product item)
+    public async Task<Product?> AddAsync(Product product)
     {
-        throw new NotImplementedException();
+        try
+        {
+            await _context.Products.AddAsync(product);
+            await _context.SaveChangesAsync();
+            return product;
+        }
+        catch (DbUpdateException ex)
+        {
+            throw new Exception("DB update failed: " + ex.InnerException?.Message, ex);
+        }
     }
 
-    public Task<bool> UpdateAsync(Product item)
+    public async Task<Product?> UpdateAsync(Product product)
     {
-        throw new NotImplementedException();
+        try
+        {
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
+            return product;
+        }
+        catch (DbUpdateException ex)
+        {
+            throw new Exception("DB update failed: " + ex.InnerException?.Message, ex);
+        }
     }
 
-    public Task<bool> DeleteAsync(int id)
+    public async Task<Product?> DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var product = await _context.Products.FindAsync(id);
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return product;
+        }
+        catch (DbUpdateException ex)
+        {
+            throw new Exception("DB update failed: " + ex.InnerException?.Message, ex);
+        }
     }
 }

@@ -42,4 +42,48 @@ public class ProductController : ControllerBase
             return StatusCode(500, ex);
         }
     }
+
+    [HttpPost]
+    public async Task<IActionResult> PostProduct(Product product)
+    {
+        try
+        {
+            await _productService.PostAsync(product);
+            return CreatedAtAction(nameof(GetProductById), new { id = product.Id }, product);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex);
+        }
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutProduct(int id, Product product)
+    {
+        try
+        {
+            if (id != product.Id)
+                return BadRequest("Id mismatch");
+            await _productService.PutAsync(product);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteProduct(int id)
+    {
+        try
+        {
+            await _productService.DeleteAsync(id);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex);
+        }
+    }
 }

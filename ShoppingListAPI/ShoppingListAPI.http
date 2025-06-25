@@ -37,3 +37,7 @@ Content-Type: application/json
 "productName": "Glass Cleaner",
 "price": 15.99
 }
+
+###
+
+GET {{ShoppingListAPI_HostAddress}}/api/shopping-list/products

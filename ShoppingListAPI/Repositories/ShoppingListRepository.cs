@@ -32,38 +32,38 @@ public class ShoppingListRepository : IDataRepository<ShoppingList>
             await _context.SaveChangesAsync();
             return shoppingList;
         }
-        catch (Exception)
+        catch (DbUpdateException ex)
         {
-            return null;
+            throw new Exception("DB update failed: " + ex.InnerException?.Message, ex);
         }
     }
 
-    public async Task<bool> UpdateAsync(ShoppingList shoppingList)
+    public async Task<ShoppingList?> UpdateAsync(ShoppingList shoppingList)
     {
         try
         {
             _context.ShoppingLists.Update(shoppingList);
             await _context.SaveChangesAsync();
-            return true;
+            return shoppingList;
         }
-        catch (Exception)
+        catch (DbUpdateException ex)
         {
-            return false;
+            throw new Exception("DB update failed: " + ex.InnerException?.Message, ex);
         }
     }
 
-    public async Task<bool> DeleteAsync(int id)
+    public async Task<ShoppingList?> DeleteAsync(int id)
     {
         try
         {
             var shoppingList = await _context.ShoppingLists.FindAsync(id);
             _context.ShoppingLists.Remove(shoppingList);
             await _context.SaveChangesAsync();
-            return true;
+            return shoppingList;
         }
-        catch (Exception)
+        catch (DbUpdateException ex)
         {
-            return false;
+            throw new Exception("DB update failed: " + ex.InnerException?.Message, ex);
         }
     }
 }
