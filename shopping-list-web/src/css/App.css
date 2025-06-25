@@ -127,6 +127,8 @@ a {
   flex-direction: column;
   background: #4A4947;
   justify-content: flex-start;
+  font-size: 1.2rem;
+  font-weight: bold;
   align-items: flex-start;
   flex: 0.4;
   padding-top: 2rem;
@@ -136,7 +138,7 @@ a {
 
 .left-menu > .menu {
   width: 100%;
-  padding: 1.5rem;
+  padding: 1.2rem;
   color: #d9dfff;
 }
 

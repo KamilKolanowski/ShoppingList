@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingListAPI.Models;
-using ShoppingListAPI.Models.Dtos;
 using ShoppingListAPI.Repositories;
 
 namespace ShoppingListAPI.Services;
@@ -25,9 +24,10 @@ public class ShoppingListService : IEntityService<ShoppingList>
         return await _repository.GetByIdAsync(shoppingListId);
     }
 
-    public async Task PostAsync(ShoppingList shoppingList)
+    public async Task<ShoppingList?> PostAsync(ShoppingList shoppingList)
     { 
         await _repository.AddAsync(shoppingList);
+        return shoppingList;
     }
 
     public async Task PutAsync(ShoppingList shoppingList)

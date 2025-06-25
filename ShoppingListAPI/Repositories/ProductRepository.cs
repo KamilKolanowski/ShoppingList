@@ -14,7 +14,7 @@ public class ProductRepository : IDataRepository<Product>
         throw new NotImplementedException();
     }
 
-    public Task<bool> AddAsync(Product item)
+    public Task<Product?> AddAsync(Product item)
     {
         throw new NotImplementedException();
     }

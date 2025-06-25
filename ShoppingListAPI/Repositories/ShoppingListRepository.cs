@@ -24,17 +24,17 @@ public class ShoppingListRepository : IDataRepository<ShoppingList>
         return await _context.ShoppingLists.FindAsync(id);
     }
 
-    public async Task<bool> AddAsync(ShoppingList shoppingList)
+    public async Task<ShoppingList?> AddAsync(ShoppingList shoppingList)
     {
         try
         {
             await _context.ShoppingLists.AddAsync(shoppingList);
             await _context.SaveChangesAsync();
-            return true;
+            return shoppingList;
         }
         catch (Exception)
         {
-            return false;
+            return null;
         }
     }
 

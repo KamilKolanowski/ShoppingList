@@ -14,7 +14,7 @@ public class ProductService : IEntityService<Product>
         throw new NotImplementedException();
     }
 
-    public Task PostAsync(Product item)
+    public Task<Product?> PostAsync(Product item)
     {
         throw new NotImplementedException();
     }

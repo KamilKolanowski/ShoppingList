@@ -18,13 +18,13 @@ public class Program
         );
         // Add repositories
         builder.Services.AddScoped<IDataRepository<ShoppingList>, ShoppingListRepository>();
-        // builder.Services.AddScoped<IDataRepository<ShoppingListItem>, ShoppingListItemRepository>();
-        // builder.Services.AddScoped<IDataRepository<Product>, ProductRepository>();
+        builder.Services.AddScoped<IDataRepository<ShoppingListItem>, ShoppingListItemRepository>();
+        builder.Services.AddScoped<IDataRepository<Product>, ProductRepository>();
 
         // Add services for API
         builder.Services.AddScoped<IEntityService<ShoppingList>, ShoppingListService>();
-        // builder.Services.AddScoped<IEntityService<ShoppingListItem>, ShoppingListItemService>();
-        // builder.Services.AddScoped<IEntityService<Product>, ProductService>();
+        builder.Services.AddScoped<IEntityService<ShoppingListItem>, ShoppingListItemService>();
+        builder.Services.AddScoped<IEntityService<Product>, ProductService>();
 
         // builder.Services.AddControllers();
         builder.Services.AddControllers().AddJsonOptions(options =>

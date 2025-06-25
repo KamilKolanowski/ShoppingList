@@ -20,6 +20,8 @@ public class ShoppingListDbContext : DbContext
         modelBuilder.Entity<ShoppingList>(entity =>
         {
             entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
             entity
                 .Property(e => e.ShoppingListName)
                 .IsRequired()
@@ -36,6 +38,8 @@ public class ShoppingListDbContext : DbContext
         modelBuilder.Entity<Product>(entity =>
         {
             entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
+
             entity
                 .Property(e => e.ProductName)
                 .IsRequired()
@@ -48,13 +52,16 @@ public class ShoppingListDbContext : DbContext
         modelBuilder.Entity<ShoppingListItem>(entity =>
         {
             entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
             entity
                 .HasOne(i => i.ShoppingList)
                 .WithMany(s => s.Items)
                 .HasForeignKey(i => i.ShoppingListId);
 
-            entity.HasOne(i => i.Product).WithMany().HasForeignKey(i => i.ProductId);
+            entity.HasOne(i => i.Product)
+                .WithMany()
+                .HasForeignKey(i => i.ProductId);
 
             entity.Property(i => i.Quantity).IsRequired().HasColumnType("int");
             entity.Property(i => i.Weight).HasColumnType("decimal(18,2)");
@@ -62,4 +69,5 @@ public class ShoppingListDbContext : DbContext
             entity.Property(i => i.IsPickedUp).IsRequired().HasColumnType("bit");
         });
     }
+
 }

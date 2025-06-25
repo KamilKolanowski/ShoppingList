@@ -9,23 +9,7 @@ POST {{ShoppingListAPI_HostAddress}}/api/shopping-list/
 Content-Type: application/json
 
 {
-  "shoppingListName": "Weekly Groceries",
-  "items": [
-    {
-      "productId": 1,
-      "quantity": 2,
-      "weight": 0.5,
-      "total": 3.98,
-      "isPickedUp": false
-    },
-    {
-      "productId": 2,
-      "quantity": 1,
-      "weight": null,
-      "total": 1.99,
-      "isPickedUp": false
-    }
-  ]
+  "shoppingListName": "Weekly Groceries"
 }
 
 ###
@@ -34,7 +18,7 @@ POST {{ShoppingListAPI_HostAddress}}/api/shopping-list/items
 Content-Type: application/json
 
 {
-"shoppingListId": 1,
+"shoppingListId": 2,
 "productId": 5,
 "quantity": 3,
 "weight": 1.2,
@@ -44,3 +28,12 @@ Content-Type: application/json
 
 ### 
 GET {{ShoppingListAPI_HostAddress}}/api/shopping-list/items
+
+###
+POST {{ShoppingListAPI_HostAddress}}/api/shopping-list/products
+Content-Type: application/json
+
+{
+"productName": "Glass Cleaner",
+"price": 15.99
+}

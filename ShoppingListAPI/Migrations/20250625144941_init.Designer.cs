@@ -11,8 +11,8 @@ using ShoppingListAPI.Data;
 namespace ShoppingListAPI.Migrations
 {
     [DbContext(typeof(ShoppingListDbContext))]
-    [Migration("20250624122730_changeType")]
-    partial class changeType
+    [Migration("20250625144941_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

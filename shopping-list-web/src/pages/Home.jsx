@@ -5,6 +5,7 @@ function Home() {
                 <div className="menu">Add Shopping List</div>
                 <div className="menu">Edit Shopping List</div>
                 <div className="menu">Delete Shopping List</div>
+                <div className="menu">View Shopping List</div>
             </menu>
             <div className="main-view">
                 <h2>Shopping List</h2>

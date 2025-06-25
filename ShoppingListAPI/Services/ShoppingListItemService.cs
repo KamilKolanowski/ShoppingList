@@ -22,9 +22,10 @@ public class ShoppingListItemService : IEntityService<ShoppingListItem>
         return await _repository.GetByIdAsync(id);
     }
 
-    public async Task PostAsync(ShoppingListItem item)
+    public async Task<ShoppingListItem?> PostAsync(ShoppingListItem item)
     {
-        await _repository.AddAsync(item);
+        var createdItem = await _repository.AddAsync(item);
+        return createdItem;
     }
 
     public async Task PutAsync(ShoppingListItem item)

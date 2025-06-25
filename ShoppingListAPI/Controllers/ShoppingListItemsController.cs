@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using ShoppingListAPI.Models;
-using ShoppingListAPI.Models.Dtos;
 using ShoppingListAPI.Services;
 
 namespace ShoppingListAPI.Controllers;
@@ -22,12 +21,7 @@ public class ShoppingListItemController : ControllerBase
         try
         {
             var entities = await _shoppingListItemService.GetAllAsync();
-            var dtos = new List<ShoppingListItemDto>();
-            foreach (var entity in entities)
-            {
-                dtos.Add(MapToDto(entity));
-            }
-            return Ok(dtos);
+            return Ok(entities);
         }
         catch (Exception ex)
         {
@@ -36,14 +30,14 @@ public class ShoppingListItemController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetShoppingListItem(int id)
+    public async Task<ActionResult<ShoppingListItem>> GetShoppingListItem(int id)
     {
         try
         {
             var entity = await _shoppingListItemService.GetByIdAsync(id);
             if (entity == null)
                 return NotFound();
-            return Ok(MapToDto(entity));
+            return Ok(entity);
         }
         catch (Exception ex)
         {
@@ -52,13 +46,15 @@ public class ShoppingListItemController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostShoppingListItem([FromBody] ShoppingListItemDto shoppingListItemDto)
+    public async Task<IActionResult> PostShoppingListItem(ShoppingListItem shoppingListItem)
     {
         try
         {
-            var entity = MapToEntity(shoppingListItemDto);
-            await _shoppingListItemService.PostAsync(entity);
-            return CreatedAtAction(nameof(GetShoppingListItem), new { id = entity.Id }, MapToDto(entity));
+            var createdItem = await _shoppingListItemService.PostAsync(shoppingListItem);
+            if (createdItem == null || createdItem.Id == 0)
+                return StatusCode(500, "Failed to create item or ID not generated.");
+
+            return CreatedAtAction(nameof(GetShoppingListItem), new { id = createdItem.Id }, createdItem);
         }
         catch (Exception ex)
         {
@@ -66,16 +62,16 @@ public class ShoppingListItemController : ControllerBase
         }
     }
 
+
     [HttpPut("{id}")]
     public async Task<IActionResult> PutShoppingListItem(
         int id,
-        ShoppingListItemDto shoppingListItemDto
+        ShoppingListItem shoppingListItem
     )
     {
         try
         {
-            var entity = MapToEntity(shoppingListItemDto);
-            await _shoppingListItemService.PutAsync(entity);
+            await _shoppingListItemService.PutAsync(shoppingListItem);
             return NoContent();
         }
         catch (Exception ex)
@@ -98,28 +94,4 @@ public class ShoppingListItemController : ControllerBase
         }
     }
 
-    private ShoppingListItemDto MapToDto(ShoppingListItem entity)
-    {
-        return new ShoppingListItemDto
-        {
-            Id = entity.Id,
-            ProductId = entity.ProductId,
-            Quantity = entity.Quantity,
-            Weight = entity.Weight,
-            Total = entity.Total,
-            IsPickedUp = entity.IsPickedUp,
-        };
-    }
-
-    private ShoppingListItem MapToEntity(ShoppingListItemDto dto)
-    {
-        return new ShoppingListItem
-        {
-            ProductId = dto.ProductId,
-            Quantity = dto.Quantity,
-            Weight = dto.Weight,
-            Total = dto.Total,
-            IsPickedUp = dto.IsPickedUp,
-        };
-    }
 }

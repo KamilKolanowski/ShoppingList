@@ -23,17 +23,17 @@ public class ShoppingListItemRepository : IDataRepository<ShoppingListItem>
         return await _context.ShoppingListItems.FindAsync(id);
     }
 
-    public async Task<bool> AddAsync(ShoppingListItem item)
+    public async Task<ShoppingListItem> AddAsync(ShoppingListItem item)
     {
         try
         {
             await _context.ShoppingListItems.AddAsync(item);
             await _context.SaveChangesAsync();
-            return true;
+            return item;
         }
-        catch (Exception)
+        catch (DbUpdateException ex)
         {
-            return false;
+            throw new Exception("DB update failed: " + ex.InnerException?.Message, ex);
         }
     }
 

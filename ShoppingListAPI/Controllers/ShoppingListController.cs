@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using ShoppingListAPI.Models;
-using ShoppingListAPI.Models.Dtos;
 using ShoppingListAPI.Services;
 
 namespace ShoppingListAPI.Controllers;
