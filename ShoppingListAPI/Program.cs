@@ -25,17 +25,20 @@ public class Program
         builder.Services.AddScoped<IEntityService<ShoppingList>, ShoppingListService>();
         builder.Services.AddScoped<IEntityService<ShoppingListItem>, ShoppingListItemService>();
         builder.Services.AddScoped<IEntityService<Product>, ProductService>();
-
-        // builder.Services.AddControllers();
-        builder.Services.AddControllers().AddJsonOptions(options =>
+        builder.Services.AddControllers();
+        
+        builder.Services.AddCors(options =>
         {
-            options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
-            options.JsonSerializerOptions.MaxDepth = 64; // optional, increase depth if needed
+            options.AddDefaultPolicy(policy =>
+            {
+                policy.WithOrigins("http://localhost:5173").AllowAnyHeader().AllowAnyMethod();
+            });
         });
-
 
         var app = builder.Build();
 
+        app.UseRouting();
+        app.UseCors();
         app.UseHttpsRedirection();
         app.UseAuthorization();
         app.MapControllers();
