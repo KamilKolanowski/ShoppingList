@@ -32,7 +32,7 @@ html, body {
 .navbar {
   width: 100%;
   padding: 1rem 1.5rem;
-  background: #3d3dfb;
+  background: #4A4947;
   color: #d9dfff;
   flex-shrink: 0;
 }
@@ -97,7 +97,7 @@ a {
 .footer {
   display: flex;
   min-height: 5vh;
-  background: #e4e7dc;
+  background: #D8D2C2;
   color: #050315;
   font-style: italic;
   justify-content: center;
@@ -107,7 +107,7 @@ a {
 
 .home, .products, .shopping-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex: 1;
   text-align: center;
   justify-content: center;
@@ -122,6 +122,41 @@ a {
   color: #d9dfff;
 }
 
+.left-menu {
+  display: flex;
+  flex-direction: column;
+  background: #4A4947;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 0.4;
+  padding-top: 2rem;
+  gap: 0.5rem;
+  min-height: 100%;
+}
+
+.left-menu > .menu {
+  width: 100%;
+  padding: 1.5rem;
+  color: #d9dfff;
+}
+
+.menu:hover {
+  background: #fafbf7;
+  color: #050315;
+  cursor: pointer;
+}
+
+.main-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  padding-top: 2rem;
+  align-items: center;
+  gap: 1rem;
+  flex: 3;
+}
+
 @media (max-width: 768px) {
   .navbar > .container {
     flex-direction: row;
@@ -132,7 +167,7 @@ a {
     display: none;
     flex-direction: column;
     gap: 1rem;
-    background-color: #3d3dfb;
+    background-color: #5B5A58;
     width: 100%;
     padding: 1rem;
     position: absolute;
@@ -148,4 +183,18 @@ a {
   .hamburger {
     display: block;
   }
+}
+
+/* Testing */
+table {
+  width: 300px;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 8px;
+  border: 1px solid #333;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
 }

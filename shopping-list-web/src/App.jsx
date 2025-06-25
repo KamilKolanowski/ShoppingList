@@ -18,7 +18,7 @@ function App() {
                         <Route path="/shopping-list" element={<ShoppingList />} />
                     </Routes>
                 </main>
-                <Footer />
+                {/*<Footer />*/}
             </div>
         </BrowserRouter>
     )
