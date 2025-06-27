@@ -10,7 +10,9 @@ function NavBar() {
     return (
         <nav className="navbar">
             <div className="container">
-                <img src={logo} alt="logo" className="logo" />
+                <Link to="/">
+                    <img src={logo} alt="logo" className="logo" />
+                </Link>
 
                 <div className={`nav-links ${menuOpen ? "open" : ""}`}>
                     <div className="navbar-header">
