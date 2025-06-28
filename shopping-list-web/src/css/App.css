@@ -33,7 +33,7 @@ html, body {
   background: #2a2929;
   color: #fcf3f3;
   flex-shrink: 0;
-  border-bottom: 4px solid #043a04;
+  border-bottom: 4px solid #FFD700;
 }
 
 .container {
@@ -228,7 +228,7 @@ a {
   font-weight: bold;
   align-items: flex-start;
   flex: 0.5;
-  border-right: 4px solid #043a04;
+  border-right: 4px solid #FFD700;
   gap: 0.5rem;
   min-height: 100%;
 }
@@ -250,6 +250,7 @@ a {
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
+  background-color: #2a2929;
   align-items: center;
   gap: 1rem;
   flex: 3;
