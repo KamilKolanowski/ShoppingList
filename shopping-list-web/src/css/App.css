@@ -31,7 +31,7 @@ html, body {
   width: 100%;
   padding: 1rem 1.5rem;
   background: #2a2929;
-  color: #fcf3f3;
+  color: #fff;
   flex-shrink: 0;
   border-bottom: 4px solid #FFD700;
 }
@@ -60,7 +60,7 @@ html, body {
 }
 
 .navbar-header:hover {
-  color: #FFFFFF;
+  color: #fff;
 }
 
 .navbar-header::after {
@@ -97,7 +97,7 @@ a {
 /*  display: flex;*/
 /*  min-height: 5vh;*/
 /*  background: #D8D2C2;*/
-/*  color: #050315;*/
+/*  color: #fff;*/
 /*  font-style: italic;*/
 /*  justify-content: center;*/
 /*  align-items: center;*/
@@ -226,22 +226,27 @@ a {
   justify-content: flex-start;
   font-size: 1.2rem;
   font-weight: bold;
-  align-items: flex-start;
+  align-items: center;
   flex: 0.5;
   border-right: 4px solid #FFD700;
   gap: 0.5rem;
   min-height: 100%;
 }
 
+.left-menu > .menu:nth-child(1) {
+  margin-top: 1.5rem;
+}
+
 .left-menu > .menu {
-  width: 100%;
+  width: 80%;
   padding: 1.2rem;
-  color: #d9dfff;
+  color: #fff;
 }
 
 .menu:hover {
   background: #fafbf7;
   color: #050315;
+  border-radius: 1rem;
   cursor: pointer;
 }
 
