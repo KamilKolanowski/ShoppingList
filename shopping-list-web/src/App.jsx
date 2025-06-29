@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Products from './pages/Products'
 import ShoppingList from './pages/ShoppingList'
 import {BrowserRouter, Routes, Route } from "react-router-dom";
+import AddShoppingList from "./pages/shopping-list/AddShoppingList.jsx";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                         <Route index element={<Home />} />
                         <Route path="/products" element={<Products />} />
                         <Route path="/shopping-list" element={<ShoppingList />} />
+                        <Route path="/shopping-list/add-shopping-list" element={<AddShoppingList />} />
                     </Routes>
                 </main>
                 {/*<Footer />*/}
