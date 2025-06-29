@@ -1,4 +1,3 @@
-// import AddShoppingList from "./shopping-list/AddShoppingList";
 import {Link} from "react-router-dom";
 import LeftMenu from "../components/LeftMenu";
 
@@ -10,7 +9,7 @@ function Home() {
                 <LeftMenu path="/shopping-list/edit-shopping-list" value="Edit Shopping List"/>
                 <LeftMenu path="/shopping-list/delete-shopping-list" value="Delete Shopping List"/>
                 <LeftMenu path="/shopping-list/view-shopping-list" value="View Shopping List"/>
-            </menu>
+           </menu>
             <div className="main-view">
                 <section className="main-section">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor sit amet lectus at

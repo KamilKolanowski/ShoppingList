@@ -26,7 +26,6 @@ function App() {
                         <Route path="/shopping-list/view-shopping-list" element={<ViewShoppingList />} />
                     </Routes>
                 </main>
-                {/*<Footer />*/}
             </div>
         </BrowserRouter>
     )
