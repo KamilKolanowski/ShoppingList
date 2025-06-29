@@ -6,6 +6,9 @@ import Products from './pages/Products'
 import ShoppingList from './pages/ShoppingList'
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 import AddShoppingList from "./pages/shopping-list/AddShoppingList.jsx";
+import EditShoppingList from "./pages/shopping-list/EditShoppingList.jsx";
+import DeleteShoppingList from "./pages/shopping-list/DeleteShoppingList.jsx";
+import ViewShoppingList from "./pages/shopping-list/ViewShoppingList.jsx";
 
 function App() {
     return (
@@ -18,6 +21,9 @@ function App() {
                         <Route path="/products" element={<Products />} />
                         <Route path="/shopping-list" element={<ShoppingList />} />
                         <Route path="/shopping-list/add-shopping-list" element={<AddShoppingList />} />
+                        <Route path="/shopping-list/edit-shopping-list" element={<EditShoppingList />} />
+                        <Route path="/shopping-list/delete-shopping-list" element={<DeleteShoppingList />} />
+                        <Route path="/shopping-list/view-shopping-list" element={<ViewShoppingList />} />
                     </Routes>
                 </main>
                 {/*<Footer />*/}

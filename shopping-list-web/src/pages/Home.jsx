@@ -1,4 +1,4 @@
-import AddShoppingList from "./shopping-list/AddShoppingList";
+// import AddShoppingList from "./shopping-list/AddShoppingList";
 import {Link} from "react-router-dom";
 import LeftMenu from "../components/LeftMenu";
 
@@ -6,10 +6,10 @@ function Home() {
     return (
         <div className="home">
             <menu className="left-menu">
-                <LeftMenu path="./shopping-list/AddShoppingList" value="Add Shopping List"/>
-                <LeftMenu path="./shopping-list/EditShoppingList" value="Edit Shopping List"/>
-                <LeftMenu path="./shopping-list/DeleteShoppingList" value="Delete Shopping List"/>
-                <LeftMenu path="./shopping-list/ViewShoppingList" value="View Shopping List"/>
+                <LeftMenu path="/shopping-list/add-shopping-list" value="Add Shopping List"/>
+                <LeftMenu path="/shopping-list/edit-shopping-list" value="Edit Shopping List"/>
+                <LeftMenu path="/shopping-list/delete-shopping-list" value="Delete Shopping List"/>
+                <LeftMenu path="/shopping-list/view-shopping-list" value="View Shopping List"/>
             </menu>
             <div className="main-view">
                 <section className="main-section">
@@ -54,12 +54,10 @@ function Home() {
                         parturient montes, nascetur ridiculus mus. Morbi nec est consequat, ullamcorper arcu at,
                         vestibulum massa. Cras ac facilisis odio. Ut scelerisque orci ac ipsum commodo
                         fermentum.</p>
-
-
                 </section>
                 </div>
         </div>
-);
+    );
 }
 
 export default Home;
