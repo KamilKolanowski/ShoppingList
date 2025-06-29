@@ -5,11 +5,11 @@
     </text>
 
     <!-- Shopping Cart Icon -->
-    <g transform="translate(10, 30)" fill="#FFD700">
+    <g transform="translate(10, 30)" fill="#39ff1499">
         <!-- Cart basket -->
         <rect x="0" y="0" width="40" height="25" rx="3" ry="3"/>
         <!-- Cart handle -->
-        <line x1="0" y1="0" x2="-10" y2="-10" stroke="#FFD700" stroke-width="4" />
+        <line x1="0" y1="0" x2="-10" y2="-10" stroke="#39ff1499" stroke-width="4" />
         <!-- Wheels -->
         <circle cx="8" cy="30" r="5" fill="#eee"/>
         <circle cx="32" cy="30" r="5" fill="#eee"/>
