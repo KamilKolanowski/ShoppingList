@@ -1,4 +1,5 @@
 import LeftMenu from "../../components/LeftMenu.jsx";
+import ShoppingList from "../ShoppingList.jsx";
 
 function ViewShoppingList() {
     return (
@@ -12,7 +13,7 @@ function ViewShoppingList() {
                 </nav>
                 <div className="main-view">
                     <section className="main-section">
-                        View Shopping List
+                        <ShoppingList />
                     </section>
                 </div>
             </div>
