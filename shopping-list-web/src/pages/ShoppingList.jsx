@@ -22,7 +22,7 @@ function ShoppingList() {
             ) : (
                 <div className="shopping-table">
                     <div className="shopping-table-header">
-                        <div className="header">Product ID</div>
+                        <div className="header">Product Id</div>
                         <div className="header">Quantity</div>
                         <div className="header">Weight (kg)</div>
                         <div className="header">Total ($)</div>
