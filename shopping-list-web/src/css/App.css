@@ -124,14 +124,12 @@ a {
 .shopping-list {
   display: flex;
   flex-direction: column;
-  width: 100%;
   justify-content: flex-start;
   padding: 1rem;
   align-items: center;
-  background: #ecf8e9;
-  height: 100%;
+  height: 100vh;
   border-radius: 15px;
-  color: black;
+  color: white;
 }
 
 .shopping-list > h2 {
@@ -269,14 +267,13 @@ a {
 
 .main-section {
   display: flex;
-  width: 80%;
-  height: 80%;
+  /*width: 80%;*/
+  /*height: 80%;*/
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: justify;
   padding: 5rem;
-  border-radius: 1rem;
 }
 
 .shopping-table {
@@ -295,6 +292,8 @@ a {
 .shopping-table-header > .header {
   width: 100px;
   text-align: center;
+  color: white;
+  padding-bottom: 1rem;
 }
 
 .shopping-table-header > .header:last-child {
@@ -304,14 +303,22 @@ a {
 .shopping-table-body {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 }
 
 .shopping-table-body > .body-items {
   display: flex;
   flex-direction: row;
-  padding-top: 0.7rem;
+  flex-grow: 1;
+  padding: 1rem;
   gap: 1.5rem;
+  border-radius: 55px;
   text-align: center;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: black;
 }
 
 .shopping-table-body > .body-items > .body-item {
@@ -324,13 +331,13 @@ a {
   width: 150px;
 }
 
-@media (min-width: 792px ) and (max-width: 1500px) {
+@media (min-width: 1258px ) and (max-width: 1600px) {
   .left-menu {
     width: 400px;
   }
 }
 
-@media (max-width: 792px) {
+@media (max-width: 1258px) {
   .navbar > .container {
     flex-direction: row;
     justify-content: space-between;
@@ -399,5 +406,6 @@ a {
     height: 100%;
     padding: 1rem;
     display: flex;
+    justify-content: space-evenly;
   }
 }
