@@ -460,4 +460,10 @@ a {
     display: flex;
     justify-content: space-evenly;
   }
+
+  .main-section {
+    display: flex;
+    place-content: center;
+    width: 100vw;
+  }
 }
