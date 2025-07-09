@@ -127,7 +127,6 @@ a {
   justify-content: flex-start;
   padding: 1rem;
   align-items: center;
-  height: 100vh;
   border-radius: 15px;
   color: white;
 }
@@ -257,8 +256,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
-  flex-grow: 1;
+  flex: 1 0 auto;
   background-color: #2a2929;
   color: #fff;
   align-items: center;
@@ -267,73 +265,77 @@ a {
 
 .main-section {
   display: flex;
-  flex-grow: 1;
+  flex: 1 0 auto;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: justify;
-  padding: 5rem;
+}
+
+.shopping-list {
+  display: flex;
+  padding: 1rem;
 }
 
 .shopping-table {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  flex: 1 0 auto;
+}
+
+.shopping-list > .shopping-table-body {
+  display: flex;
+  flex: 1 0 auto;
 }
 
 .shopping-table-header {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   list-style: none;
+  flex: 1 0 auto;
   gap: 1.5rem;
 }
 
 .shopping-table-header > .header {
-  width: 100px;
   text-align: center;
   color: white;
   padding-bottom: 1rem;
-}
-
-.shopping-table-header > .header:last-child {
-  width: 150px;
+  flex: 1 0 auto;
 }
 
 .shopping-table-body {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  justify-content: space-evenly;
+  flex: 1 0 auto;
   gap: 1.5rem;
 }
 
 .shopping-table-body > .body-items {
   display: flex;
-  flex-direction: row;
+  flex: 1 0 auto;
   padding: 1rem;
-  gap: 1.5rem;
   border-radius: 55px;
+  gap: 3.5rem;
   text-align: center;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
   background: white;
   color: black;
 }
 
 .shopping-table-body > .body-items > .body-item {
   display: flex;
-  width: 100px;
+  flex: 1 0 auto;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.shopping-table-body > .body-items > .body-item:last-child {
-  width: 150px;
-}
-
-@media (min-width: 1258px ) and (max-width: 1600px) {
+@media (min-width: 1258px) and (max-width: 1600px) {
   .left-menu {
     width: 400px;
   }
-
 }
 
 @media (max-width: 1258px) {
@@ -344,55 +346,25 @@ a {
 
   .shopping-table-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 0.7rem;
-  }
-
-  .shopping-table-header > .header {
-    width: 50px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding-bottom: 1rem;
-  }
-
-  .shopping-table-header > .header:last-child {
-    width: 50px;
-  }
-
-  .shopping-table-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .shopping-table {
-    width: 100px;
   }
 
   .shopping-table-body > .body-items {
     display: flex;
     flex-direction: row;
-    width: 90vw;
+    flex: 1 0 auto;
     font-size: 0.8rem;
-    padding: 0.8rem;
-    gap: 1rem;
     border-radius: 55px;
   }
 
   .shopping-table-body > .body-items > .body-item {
     display: flex;
-    flex: 1;
     justify-content: center;
+    flex: 1 0 auto;
   }
 
   .pick-btn {
     font-size: 0.7rem;
-    padding: 0.3rem 0.7rem;
   }
 
   .navbar > .container > .nav-links {
@@ -411,10 +383,9 @@ a {
   .home {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    align-content: space-between;
-    /*width: 100%;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*align-content: space-between;*/
     padding: 0;
     margin: 0;
   }
@@ -452,18 +423,5 @@ a {
 
   .left-menu > .menu:nth-child(1) {
     margin: 0;
-  }
-
-  .main-view {
-    height: 100%;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  .main-section {
-    display: flex;
-    place-content: center;
-    width: 100vw;
   }
 }
