@@ -295,13 +295,13 @@ a {
   list-style: none;
   flex: 1 0 auto;
   gap: 1.5rem;
+  box-sizing: border-box;
 }
 
 .shopping-table-header > .header {
   text-align: center;
   color: white;
   padding-bottom: 1rem;
-  flex: 1 0 auto;
 }
 
 .shopping-table-body {
@@ -318,7 +318,7 @@ a {
   flex: 1 0 auto;
   padding: 1rem;
   border-radius: 55px;
-  gap: 3.5rem;
+  /*gap: 3.5rem;*/
   text-align: center;
   background: white;
   color: black;
@@ -346,7 +346,7 @@ a {
 
   .shopping-table-header {
     display: flex;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 
   .shopping-table-body > .body-items {
@@ -383,9 +383,6 @@ a {
   .home {
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    /*align-content: space-between;*/
     padding: 0;
     margin: 0;
   }
