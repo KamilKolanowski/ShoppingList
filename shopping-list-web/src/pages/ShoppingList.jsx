@@ -20,36 +20,35 @@ function ShoppingList() {
             ) : items.length === 0 ? (
                 <p>Loading...</p>
             ) : (
-                <table className="shopping-list">
-                    <thead>
-                    <tr>
-                        <th>Product Id</th>
-                        <th>Quantity</th>
-                        <th>Weight (kg)</th>
-                        <th>Total ($)</th>
-                        <th>Picked Up</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div className="shopping-table">
+                    <div className="shopping-table-header">
+                        <div className="header">Product Name</div>
+                        <div className="header">Quantity</div>
+                        <div className="header">Weight (kg)</div>
+                        <div className="header">Total ($)</div>
+                        {/*<div className="header">Picked Up</div>*/}
+                        <div className="header">Action</div>
+                    </div>
+                    <div className="shopping-table-body">
                     {items.map(item => (
-                        <tr key={item.id}>
-                            <td data-label="Product Id">{item.productId}</td>
-                            <td data-label="Quantity">{item.quantity}</td>
-                            <td data-label="Weight (kg)">{item.weight.toFixed(2)}</td>
-                            <td data-label="Total ($)">${item.total.toFixed(2)}</td>
-                            <td data-label="Picked Up">{item.isPickedUp || pickedUpIds.includes(item.id) ? "✔️" : "❌"}</td>
-                            <td data-label="Action">
-                                <button className="pick-btn" onClick={() => togglePickedUp(item.id)}>
-                                    Mark as {pickedUpIds.includes(item.id) || item.isPickedUp ? "Not Picked" : "Picked"}
+                        <div key={item.id} className="body-items">
+                            <div className="body-item">Test Product Name</div>
+                            <div className="body-item">{item.quantity}</div>
+                            <div className="body-item">{item.weight.toFixed(2)}</div>
+                            <div className="body-item">${item.total.toFixed(2)}</div>
+                            {/*<div className="body-item">{item.isPickedUp || pickedUpIds.includes(item.id) ? "" : ""}</div>*/}
+                            <div className="body-item">
+                                <button
+                                    className="pick-btn"
+                                    onClick={() => togglePickedUp(item.id)}
+                                >
+                                    {pickedUpIds.includes(item.id) || item.isPickedUp ? "️Picked" : "Not Picked"}
                                 </button>
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
                     ))}
-                    </tbody>
-
-                </table>
-
+                    </div>
+                </div>
             )}
         </div>
     );
