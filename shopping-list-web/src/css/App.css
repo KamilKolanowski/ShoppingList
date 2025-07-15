@@ -127,7 +127,6 @@ a {
   justify-content: flex-start;
   padding: 1rem;
   align-items: center;
-  border-radius: 15px;
   color: white;
 }
 
@@ -275,10 +274,13 @@ a {
   border: 2px #988484 solid;
 }
 
+.list-name {
+  margin-bottom: 0.5rem;
+}
+
 .shopping-table-header {
   display: flex;
   gap: 1.5rem;
-  flex-basis: 30%;
   padding: 1rem;
   color: black;
   background: #cccccc;
@@ -320,11 +322,16 @@ a {
 
   .shopping-table-header {
     display: flex;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .shopping-table-body {
+    display: flex;
+    flex-direction: column;
   }
 
   .body-item {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   .pick-btn {
@@ -337,7 +344,6 @@ a {
     width: 70px;
     font-size: 0.7rem;
   }
-
 
   .navbar > .container > .nav-links {
     display: none;
@@ -365,6 +371,7 @@ a {
 
   .hamburger {
     display: block;
+    margin-bottom: 0.6rem;
   }
 
   .left-menu {

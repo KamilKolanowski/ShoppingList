@@ -14,7 +14,7 @@ function ShoppingList() {
     return (
         <div className="shopping-list">
             <h2>Shopping List</h2>
-
+            <h4 className="list-name">Weekly Groceries</h4>
             {error ? (
                 <p style={{ color: "red" }}>Failed to load items.</p>
             ) : items.length === 0 ? (
@@ -26,17 +26,15 @@ function ShoppingList() {
                         <div className="header">Quantity</div>
                         <div className="header">Weight (kg)</div>
                         <div className="header">Total ($)</div>
-                        {/*<div className="header">Picked Up</div>*/}
                         <div className="header">Action</div>
                     </div>
                     <div className="shopping-table-body">
                     {items.map(item => (
                         <div key={item.id} className="body-items">
-                            <div className="body-item">Test Product Name</div>
+                            <div className="body-item">{item.id}</div>
                             <div className="body-item">{item.quantity}</div>
                             <div className="body-item">{item.weight.toFixed(2)}</div>
                             <div className="body-item">${item.total.toFixed(2)}</div>
-                            {/*<div className="body-item">{item.isPickedUp || pickedUpIds.includes(item.id) ? "" : ""}</div>*/}
                             <div className="body-item">
                                 <button
                                     className="pick-btn"
