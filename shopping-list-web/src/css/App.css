@@ -311,6 +311,19 @@ a {
   flex: 1
 }
 
+.save-button {
+  padding: 0.5rem;
+  background-color: #41503d;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.save-button:hover {
+  cursor: pointer;
+  background-color: rgba(57, 255, 20, 0.6);
+  color: black;
+}
+
 @media (min-width: 1050px) and (max-width: 1600px) {
   .left-menu {
     width: 400px;

@@ -29,25 +29,28 @@ function ShoppingList() {
                         <div className="header">Action</div>
                     </div>
                     <div className="shopping-table-body">
-                    {items.map(item => (
-                        <div key={item.id} className="body-items">
-                            <div className="body-item">{item.id}</div>
-                            <div className="body-item">{item.quantity}</div>
-                            <div className="body-item">{item.weight.toFixed(2)}</div>
-                            <div className="body-item">${item.total.toFixed(2)}</div>
-                            <div className="body-item">
-                                <button
-                                    className="pick-btn"
-                                    onClick={() => togglePickedUp(item.id)}
-                                    style={{ backgroundColor: pickedUpIds.includes(item.id) || item.isPickedUp ? 'rgba(57, 255, 20, 0.6)' : '#c21f1f' }}
-                                >
-                                    {pickedUpIds.includes(item.id) || item.isPickedUp ? "️Picked" : "Not Picked"}
-                                </button>
+                        {items.map(item => (
+                            <div key={item.id} className="body-items">
+                                <div className="body-item">{item.id}</div>
+                                <div className="body-item">{item.quantity}</div>
+                                <div className="body-item">{item.weight.toFixed(2)}</div>
+                                <div className="body-item">${item.total.toFixed(2)}</div>
+                                <div className="body-item">
+                                    <button
+                                        className="pick-btn"
+                                        onClick={() => togglePickedUp(item.id)}
+                                        style={{backgroundColor: pickedUpIds.includes(item.id) || item.isPickedUp ? 'rgba(57, 255, 20, 0.6)' : '#c21f1f'}}
+                                    >
+                                        {pickedUpIds.includes(item.id) || item.isPickedUp ? "️Picked" : "Not Picked"}
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
                     </div>
+                    <button className="save-button">Save</button>
                 </div>
+
+
             )}
         </div>
     );
