@@ -296,6 +296,11 @@ a {
   display: flex;
   padding: 1rem;
   background-color: #2d2d2d;
+  border-top: 0.1rem solid #7c7a7a;
+}
+
+.body-items:first-child {
+  border-top: 1px solid #444444;
 }
 
 .body-item {
@@ -320,7 +325,7 @@ a {
 
   .shopping-table-header {
     display: flex;
-    font-size: 0.7rem;
+    font-size: 0.67rem;
   }
 
   .shopping-table-body {
