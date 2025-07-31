@@ -255,17 +255,11 @@ a {
 .main-view {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   flex: 1;
   background-color: #2a2929;
   color: #fff;
   align-items: center;
   gap: 1rem;
-}
-
-.main-section {
-  display: flex;
-  justify-content: center;
 }
 
 .shopping-table {
@@ -322,6 +316,7 @@ a {
   cursor: pointer;
   background-color: rgba(57, 255, 20, 0.6);
   color: black;
+  border: 1px solid #00ffe2;
 }
 
 @media (min-width: 1050px) and (max-width: 1600px) {
@@ -331,19 +326,8 @@ a {
 }
 
 @media (max-width: 1050px) {
-  .navbar > .container {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
   .shopping-table-header {
-    display: flex;
     font-size: 0.67rem;
-  }
-
-  .shopping-table-body {
-    display: flex;
-    flex-direction: column;
   }
 
   .body-item {
@@ -375,7 +359,6 @@ a {
   }
 
   .home {
-    display: flex;
     flex-direction: column;
     padding: 0;
     margin: 0;
