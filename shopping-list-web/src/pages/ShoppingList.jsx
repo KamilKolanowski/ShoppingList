@@ -31,7 +31,7 @@ function ShoppingList() {
                     <div className="shopping-table-body">
                         {items.map(item => (
                             <div key={item.id} className="body-items">
-                                <div className="body-item">{item.id}</div>
+                                <div className="body-item">Creamy Cheese</div>
                                 <div className="body-item">{item.quantity}</div>
                                 <div className="body-item">{item.weight.toFixed(2)}</div>
                                 <div className="body-item">${item.total.toFixed(2)}</div>
