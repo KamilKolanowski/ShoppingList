@@ -39,6 +39,7 @@ function ShoppingList() {
                                 <button
                                     className="pick-btn"
                                     onClick={() => togglePickedUp(item.id)}
+                                    style={{ backgroundColor: pickedUpIds.includes(item.id) || item.isPickedUp ? 'rgba(57, 255, 20, 0.6)' : '#c21f1f' }}
                                 >
                                     {pickedUpIds.includes(item.id) || item.isPickedUp ? "️Picked" : "Not Picked"}
                                 </button>
